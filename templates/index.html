@@ -22,12 +22,28 @@
 		</div>
 
 		<div class="centered">
-			<h1 id="result"></h1>
+			<h1 id="output"></h1>
 		</div>
 
 		
   		<script src="{{url_for('static',filename='js/jquery-3.2.0.min.js')}}"></script>
 	    <script src="{{url_for('static',filename='js/index.js')}}"></script>
+        <script type="text/javascript">
+            $("#myButton").click(function () {
+                $("#output").text('Predicting....');
+                var $root = {{ request.script_root|tojson|safe}};
+                var canvasObj = document.getElementById("canvas");
+                var img = canvasObj.toDataURL('image/png');
+                $.ajax({
+                    type: "POST",
+                    url: $root+"/predict/",
+                    data: img,
+                    sucsess: function (data) {
+                        $("#output").text("Predicted Output: "+data);
+                    }
+                });
+            });
+        </script>
 
 </body>
 </html>
