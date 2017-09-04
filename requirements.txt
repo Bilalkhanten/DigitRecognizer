@@ -1,12 +1,5 @@
-Flask
-Keras
-
+Flask==0.12.2
+Keras==2.0.8
+scipy==0.19.0
+tensorflow==1.1.0
 numpy
-
-scipy
-
-tensorflow
-
-Pillow
-
-h5py

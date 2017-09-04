@@ -1,1 +1,1 @@
-web: python DigitRecognizer.py
+web: gunicorn DigitRecognizer:DigitRecognizer
