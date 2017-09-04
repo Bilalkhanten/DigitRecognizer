@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Convolutional Neural Networks</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+</head>
+
+<body>
+		<h1>Digit Recognition using Convolutional Neural Networks</h1>
+
+		<div class="centered">
+			<canvas id="canvas" width="280" height="280"></canvas>
+		</div>
+
+		<div class="centered">
+			<input type="button" class="btn btn-success" id="myButton" value="Predict" style="">
+			<input type="button" class="btn btn-warning" id="clearButton" value="Clear" style="">
+		</div>
+
+		<div class="centered">
+			<h1 id="result"></h1>
+		</div>
+
+		
+  		<script src="{{url_for('static',filename='jquery-3.2.0.min.js')}}"></script>
+	    <script src="{{url_for('static',filename='index.js')}}"></script>
+
+</body>
+</html>
