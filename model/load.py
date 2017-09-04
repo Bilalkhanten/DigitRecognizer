@@ -7,7 +7,7 @@ from keras.models import Sequential
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
-
+import os,sys
 def init():
     num_classes = 10
     img_rows, img_cols = 28, 28
@@ -23,7 +23,10 @@ def init():
     model.add(Dense(num_classes, activation='softmax'))
     
     #load woeights into new model
-    model.load_weights("weights.h5")
+
+
+    model.load_weights("D://weights.h5")
+
     print("Loaded Model from disk")
 
     #compile and evaluate loaded model
