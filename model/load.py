@@ -24,8 +24,10 @@ def init():
     
     #load woeights into new model
 
+    dir = os.path.dirname(__file__)
+    weights_path = os.path.join(dir, 'weights.h5')
 
-    model.load_weights("D://weights.h5")
+    model.load_weights(weights_path)
 
     print("Loaded Model from disk")
 

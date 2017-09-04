@@ -11,6 +11,9 @@ app = Flask(__name__)
 global model, graph
 model, graph = init()
 
+dir = os.path.dirname(__file__)
+png = os.path.join(dir,'output.png')
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -18,7 +21,7 @@ def index():
 @app.route('/predict/',methods=['GET','POST'])
 def predict():
     convertoImage(request.get_data())
-    x = imread('D://output.png',mode='L')
+    x = imread(png,mode='L')
     x = np.invert(x)
     x = imresize(x,(28,28))
 
@@ -32,7 +35,7 @@ def predict():
 
 def convertoImage(imgData):
     imgStr = re.search(b'base64,(.*)',imgData).group(1)
-    with open('D://output.png','wb') as output:
+    with open(png,'wb') as output:
         output.write(base64.decodebytes(imgStr))
 
 
