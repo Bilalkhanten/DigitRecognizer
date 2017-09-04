@@ -1,1 +1,1 @@
-web: gunicorn DigitRecognizer:DigitRecognizer
+web: gunicorn --bind 0.0.0.0:$PORT DigitRecognizer:app
